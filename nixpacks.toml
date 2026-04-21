@@ -1,6 +1,8 @@
 # nixpacks.toml
 [phases.setup]
 nixPkgs = [
+  "nodejs",
+  "npm",
   "chromium",
   "nss",
   "nspr",
@@ -29,10 +31,14 @@ nixPkgs = [
 ]
 
 [phases.build]
-cmds = ["npm ci"]
+cmds = [
+  "npm config set legacy-peer-deps true",
+  "npm install --legacy-peer-deps"
+]
 
 [phases.build.env]
 PUPPETEER_SKIP_DOWNLOAD = "true"
+NPM_CONFIG_LEGACY_PEER_DEPS = "true"
 
 [start]
 cmd = "node server.js"
