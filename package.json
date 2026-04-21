@@ -1,0 +1,13 @@
+{
+  "name": "simfly-bot-new",
+  "version": "1.0.0",
+  "description": "SimFly Pakistan WhatsApp Sales Bot",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon server.js"
+  },
+  "keywords": ["whatsapp", "bot", "esim", "sales", "pakistan"],
+  "author": "SimFly Pakistan",
+  "license": "MIT"
+}

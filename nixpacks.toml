@@ -1,0 +1,35 @@
+# nixpacks.toml
+[phases.setup]
+nixPkgs = [
+  "chromium",
+  "nss",
+  "nspr",
+  "at-spi2-atk",
+  "cups",
+  "libdrm",
+  "libxcomposite",
+  "libxdamage",
+  "libxrandr",
+  "mesa",
+  "alsa-lib",
+  "pango",
+  "cairo",
+  "xorg.libxkbcommon",
+  "xorg.libX11",
+  "xorg.libXcursor",
+  "xorg.libXext",
+  "xorg.libXfixes",
+  "xorg.libXi",
+  "xorg.libXrender",
+  "xorg.libXtst",
+  "xorg.libXScrnSaver",
+  "gtk3",
+  "expat",
+  "libxcb"
+]
+
+[phases.build]
+cmds = ["npm install"]
+
+[start]
+cmd = "node server.js"
