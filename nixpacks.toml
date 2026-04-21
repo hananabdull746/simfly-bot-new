@@ -29,7 +29,13 @@ nixPkgs = [
 ]
 
 [phases.build]
-cmds = ["npm install"]
+cmds = ["npm ci"]
+
+[phases.build.env]
+PUPPETEER_SKIP_DOWNLOAD = "true"
 
 [start]
 cmd = "node server.js"
+
+[start.env]
+PUPPETEER_EXECUTABLE_PATH = "/run/current-system/sw/bin/chromium"
