@@ -1,8 +1,6 @@
-# nixpacks.toml
+# nixpacks.toml - Railway deployment configuration
 [phases.setup]
 nixPkgs = [
-  "nodejs",
-  "npm",
   "chromium",
   "nss",
   "nspr",
@@ -30,18 +28,17 @@ nixPkgs = [
   "libxcb"
 ]
 
-[phases.build]
-cmds = [
-  "npm config set legacy-peer-deps true",
-  "npm install --legacy-peer-deps"
-]
+[phases.install]
+cmds = ["npm install --legacy-peer-deps"]
 
-[phases.build.env]
+[phases.build]
+cmds = ["echo 'Build complete'"]
+
+[variables]
+PUPPETEER_SKIP_CHROMIUM_DOWNLOAD = "true"
 PUPPETEER_SKIP_DOWNLOAD = "true"
 NPM_CONFIG_LEGACY_PEER_DEPS = "true"
+NODE_ENV = "production"
 
 [start]
 cmd = "node server.js"
-
-[start.env]
-PUPPETEER_EXECUTABLE_PATH = "/run/current-system/sw/bin/chromium"
